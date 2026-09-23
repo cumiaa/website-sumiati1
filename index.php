@@ -14,6 +14,7 @@ $skills = [
 ];
 
 ?>
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -32,312 +33,456 @@ $skills = [
 <body>
 
 
-    <!-- NAVBAR -->
+<!-- ================= NAVBAR ================= -->
 
-    <nav class="navbar">
+<nav class="navbar">
 
-        <div class="logo">
-            Sumiati
+    <div class="logo">
+        Sumiati
+    </div>
+
+    <div class="menu">
+
+        <a href="#home">Home</a>
+
+        <a href="#tentang">Tentang</a>
+
+        <a href="#skill">Skill</a>
+
+        <a href="#project">Project</a>
+
+        <a href="#kontak">Kontak</a>
+
+    </div>
+
+</nav>
+
+
+<!-- ================= HOME ================= -->
+
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <div class="welcome">
+            ✨ Selamat datang di website saya
         </div>
 
-        <div class="menu">
+        <p class="small">
+            HALO, SAYA
+        </p>
 
-            <a href="#home">Home</a>
+        <h1>
+            <?php echo $nama; ?>
+        </h1>
 
-            <a href="#tentang">Tentang</a>
+        <h2>
+            <?php echo $status; ?>
+        </h2>
 
-            <a href="#skill">Skill</a>
+        <p class="hero-description">
+            <?php echo $deskripsi; ?>
+        </p>
 
-            <a href="#project">Project</a>
+        <div class="hero-buttons">
 
-            <a href="#kontak">Kontak</a>
-
-        </div>
-
-    </nav>
-
-
-    <!-- HOME -->
-
-    <section id="home" class="hero">
-
-        <div class="hero-content">
-
-            <p class="small">
-                HALO, SAYA
-            </p>
-
-            <h1>
-                <?php echo $nama; ?>
-          
-            <h2>
-                <?php echo $status; ?>
-            </h2>
-
-            <p>
-                <?php echo $deskripsi; ?>
-            </p>
-
-            <a href="#tentang" class="button">
+            <a href="#tentang" class="button primary">
                 Tentang Saya
+            </a>
+
+            <a href="#project" class="button secondary">
+                Lihat Project
             </a>
 
         </div>
 
-    </section>
+    </div>
 
 
-    <!-- TENTANG -->
+    <!-- FOTO PROFIL -->
 
-    <section id="tentang">
+    <div class="hero-card">
 
-        <h2 class="judul">
-            Tentang Saya
-        </h2>
+        <div class="profile-icon">
 
-        <div class="about">
-
-            <div class="card">
-
-                <h3>👩‍💻 Profil</h3>
-
-                <p>
-                    Saya adalah mahasiswa Teknologi Informasi
-                    yang sedang belajar membuat website dan
-                    mempelajari berbagai teknologi pemrograman.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <h3>🎯 Tujuan</h3>
-
-                <p>
-                    Saya ingin meningkatkan kemampuan dalam
-                    pemrograman dan membuat berbagai project
-                    untuk menambah pengalaman.
-                </p>
-
-            </div>
+            <img
+                src="sumiati.jpeg"
+                alt="Foto Sumiati"
+            >
 
         </div>
 
-    </section>
+        <h3>
+            <?php echo $nama; ?>
+        </h3>
+
+        <p>
+            Teknologi Informasi
+        </p>
+
+        <div class="status">
+
+            <span></span>
+
+            Sedang belajar & berkembang
+
+        </div>
+
+    </div>
+
+</section>
 
 
-    <!-- SKILL -->
+<!-- ================= TENTANG ================= -->
 
-    <section id="skill" class="abu">
+<section id="tentang" class="section">
 
-        <h2 class="judul">
-            Skill Saya
+    <div class="section-title">
+
+        <p>
+            TENTANG SAYA
+        </p>
+
+        <h2>
+            Kenalan lebih dekat 👋
         </h2>
 
-        <div class="skills">
+    </div>
 
-    <?php foreach ($skills as $skill): ?>
 
-        <div class="skill">
+    <div class="about">
 
-            <div class="icon">
-                💻
+        <div class="card">
+
+            <div class="card-icon">
+                👩‍💻
             </div>
 
             <h3>
-                <?php echo $skill; ?>
+                Profil Saya
             </h3>
 
             <p>
-                Kemampuan yang sedang saya pelajari.
+                Saya adalah mahasiswa Teknologi Informasi
+                yang sedang belajar membuat website dan
+                mempelajari berbagai teknologi pemrograman.
             </p>
 
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-icon">
+                🎯
             </div>
 
-                <?php endforeach; ?>
+            <h3>
+                Tujuan Saya
+            </h3>
 
-            </div>
-
-                <div class="icon">
-                    🌐
-                </div>
-
-                <h3>HTML</h3>
-
-                <p>
-                    Membuat struktur website.
-                </p>
-
-            </div>
-
-
-            <div class="skill">
-
-                <div class="icon">
-                    🎨
-                </div>
-
-                <h3>CSS</h3>
-
-                <p>
-                    Membuat tampilan website.
-                </p>
-
-            </div>
-
-
-            <div class="skill">
-
-                <div class="icon">
-                    🐘
-                </div>
-
-                <h3>PHP</h3>
-
-                <p>
-                    Membuat website dinamis.
-                </p>
-
-            </div>
-
-
-            <div class="skill">
-
-                <div class="icon">
-                    🐍
-                </div>
-
-                <h3>Python</h3>
-
-                <p>
-                    Belajar pemrograman.
-                </p>
-
-            </div>
+            <p>
+                Saya ingin meningkatkan kemampuan dalam
+                pemrograman dan membuat berbagai project
+                untuk menambah pengalaman.
+            </p>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- PROJECT -->
+<!-- ================= SKILL ================= -->
 
-    <section id="project">
+<section id="skill" class="section skill-section">
 
-        <h2 class="judul">
-            Project Saya
+    <div class="section-title">
+
+        <p>
+            KEMAMPUAN
+        </p>
+
+        <h2>
+            Skill Saya 💻
         </h2>
 
-        <div class="projects">
+    </div>
 
 
-            <div class="project">
+    <div class="skills">
+
+        <?php foreach ($skills as $index => $skill): ?>
+
+            <div class="skill">
+
+                <div class="skill-number">
+                    0<?php echo $index + 1; ?>
+                </div>
+
+                <div class="icon">
+
+                    <?php
+
+                    if ($skill == "HTML") {
+
+                        echo "🌐";
+
+                    } elseif ($skill == "CSS") {
+
+                        echo "🎨";
+
+                    } elseif ($skill == "PHP") {
+
+                        echo "🐘";
+
+                    } elseif ($skill == "Python") {
+
+                        echo "🐍";
+
+                    }
+
+                    ?>
+
+                </div>
 
                 <h3>
-                    🌐 Website Portfolio
+                    <?php echo $skill; ?>
                 </h3>
 
                 <p>
-                    Website portfolio sederhana
-                    menggunakan PHP, HTML dan CSS.
+                    Kemampuan yang sedang saya pelajari.
                 </p>
-
-                <a href="#" class="project-button">
-                    Lihat Project
-                </a>
 
             </div>
 
+        <?php endforeach; ?>
 
-            <div class="project">
+    </div>
 
-                <h3>
-                    🛒 Program Kasir
-                </h3>
-
-                <p>
-                    Program kasir sederhana menggunakan
-                    bahasa pemrograman Python.
-                </p>
-
-                <a href="#" class="project-button">
-                    Lihat Project
-                </a>
-
-            </div>
+</section>
 
 
-            <div class="project">
+<!-- ================= PROJECT ================= -->
 
-                <h3>
-                    🏥 Sistem Antrian
-                </h3>
+<section id="project" class="section">
 
-                <p>
-                    Program sederhana untuk mengelola
-                    sistem antrian.
-                </p>
+    <div class="section-title">
 
-                <a href="#" class="project-button">
-                    Lihat Project
-                </a>
+        <p>
+            PROJECT
+        </p>
 
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- KONTAK -->
-
-    <section id="kontak" class="kontak">
-
-        <h2 class="judul">
-            Kontak Saya
+        <h2>
+            Project Saya 🚀
         </h2>
 
-        <p>
-            Kamu bisa menghubungi saya melalui:
-        </p>
+    </div>
 
-        <div class="kontak-box">
 
-        <p>
-        📧 Email :
-        <a href="mailto:sumiati@gmail.com">
-            sumiati@gmail.com
-        </a>
-        </p>
+    <div class="projects">
 
-        <p>
-        📱 WhatsApp :
-        <a href="https://wa.me/6281216727165" target="_blank">
-            081216727165
-        </a>
-        </p>
+        <div class="project">
 
-        <p>
-        🐙 GitHub :
-        <a href="https://github.com/USERNAME" target="_blank">
-            GitHub Saya
-        </a>
-        </p>
+            <div class="project-icon">
+                🌐
+            </div>
+
+            <h3>
+                Website Portfolio
+            </h3>
+
+            <p>
+                Website portfolio sederhana
+                menggunakan PHP, HTML dan CSS.
+            </p>
+
+            <a href="#kontak" class="project-button">
+                Lihat Project →
+            </a>
 
         </div>
-    </section>
 
 
-    <!-- FOOTER -->
+        <div class="project">
 
-    <footer>
+            <div class="project-icon">
+                🛒
+            </div>
+
+            <h3>
+                Program Kasir
+            </h3>
+
+            <p>
+                Program kasir sederhana menggunakan
+                bahasa pemrograman Python.
+            </p>
+
+            <a href="#kontak" class="project-button">
+                Lihat Project →
+            </a>
+
+        </div>
+
+
+        <div class="project">
+
+            <div class="project-icon">
+                🏥
+            </div>
+
+            <h3>
+                Sistem Antrian
+            </h3>
+
+            <p>
+                Program sederhana untuk mengelola
+                sistem antrian.
+            </p>
+
+            <a href="#kontak" class="project-button">
+                Lihat Project →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= KONTAK ================= -->
+
+<section id="kontak" class="kontak">
+
+    <div class="section-title">
 
         <p>
-            © 2026 Sumiati | Website PHP
+            KONTAK
         </p>
 
-    </footer>
+        <h2>
+            Kontak Saya 🤍
+        </h2>
+
+    </div>
+
+    <p class="contact-text">
+        Kamu bisa menghubungi saya melalui:
+    </p>
+
+
+    <div class="kontak-box">
+
+        <a
+            href="mailto:sumiati@gmail.com"
+            class="contact-item"
+        >
+
+            <div class="contact-icon">
+                📧
+            </div>
+
+            <div>
+
+                <small>
+                    Email
+                </small>
+
+                <strong>
+                    sumiati@gmail.com
+                </strong>
+
+            </div>
+
+            <span>
+                →
+            </span>
+
+        </a>
+
+
+        <a
+            href="https://wa.me/6281216727165"
+            target="_blank"
+            class="contact-item"
+        >
+
+            <div class="contact-icon">
+                📱
+            </div>
+
+            <div>
+
+                <small>
+                    WhatsApp
+                </small>
+
+                <strong>
+                    081216727165
+                </strong>
+
+            </div>
+
+            <span>
+                →
+            </span>
+
+        </a>
+
+
+        <a
+            href="https://github.com/cumiaa/website-sumiati1"
+            target="_blank"
+            class="contact-item"
+        >
+
+            <div class="contact-icon">
+                🐙
+            </div>
+
+            <div>
+
+                <small>
+                    GitHub
+                </small>
+
+                <strong>
+                    cumiaa/website-sumiati1
+                </strong>
+
+            </div>
+
+            <span>
+                →
+            </span>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        Sumiati
+    </div>
+
+    <p>
+        Dibuat dengan 💙 menggunakan PHP, HTML & CSS.
+    </p>
+
+    <p class="copyright">
+        © 2026 Sumiati | Website Portfolio
+    </p>
+
+</footer>
 
 
 </body>
