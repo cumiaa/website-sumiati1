@@ -1,17 +1,42 @@
 <?php
 
-$nama = "Sumiati";
+// =========================
+// KONEKSI DATABASE
+// =========================
 
-$status = "Mahasiswa Teknologi Informasi";
+require_once "koneksi.php";
 
-$deskripsi = "Saya sedang belajar pemrograman, website, dan teknologi informasi.";
 
-$skills = [
-    "HTML",
-    "CSS",
-    "PHP",
-    "Python"
-];
+// =========================
+// AMBIL DATA PROFIL
+// =========================
+
+$queryProfil = mysqli_query(
+    $koneksi,
+    "SELECT * FROM profil LIMIT 1"
+);
+
+$profil = mysqli_fetch_assoc($queryProfil);
+
+
+// =========================
+// AMBIL DATA SKILL
+// =========================
+
+$querySkill = mysqli_query(
+    $koneksi,
+    "SELECT * FROM skills ORDER BY id ASC"
+);
+
+
+// =========================
+// AMBIL DATA PROJECT
+// =========================
+
+$queryProject = mysqli_query(
+    $koneksi,
+    "SELECT * FROM projects ORDER BY id ASC"
+);
 
 ?>
 
@@ -22,13 +47,19 @@ $skills = [
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>Website Sumiati</title>
+    <title>
+        Website <?php echo htmlspecialchars($profil['nama']); ?>
+    </title>
 
     <link rel="stylesheet" href="style.css">
 
 </head>
+
 
 <body>
 
@@ -38,7 +69,7 @@ $skills = [
 <nav class="navbar">
 
     <div class="logo">
-        Sumiati
+        <?php echo htmlspecialchars($profil['nama']); ?>
     </div>
 
     <div class="menu">
@@ -73,15 +104,15 @@ $skills = [
         </p>
 
         <h1>
-            <?php echo $nama; ?>
+            <?php echo htmlspecialchars($profil['nama']); ?>
         </h1>
 
         <h2>
-            <?php echo $status; ?>
+            <?php echo htmlspecialchars($profil['status']); ?>
         </h2>
 
         <p class="hero-description">
-            <?php echo $deskripsi; ?>
+            <?php echo htmlspecialchars($profil['deskripsi']); ?>
         </p>
 
         <div class="hero-buttons">
@@ -113,7 +144,7 @@ $skills = [
         </div>
 
         <h3>
-            <?php echo $nama; ?>
+            <?php echo htmlspecialchars($profil['nama']); ?>
         </h3>
 
         <p>
@@ -213,51 +244,73 @@ $skills = [
 
     <div class="skills">
 
-        <?php foreach ($skills as $index => $skill): ?>
+        <?php
+
+        $nomor = 1;
+
+        while ($skill = mysqli_fetch_assoc($querySkill)):
+
+        ?>
 
             <div class="skill">
 
                 <div class="skill-number">
-                    0<?php echo $index + 1; ?>
-                </div>
-
-                <div class="icon">
 
                     <?php
 
-                    if ($skill == "HTML") {
-
-                        echo "🌐";
-
-                    } elseif ($skill == "CSS") {
-
-                        echo "🎨";
-
-                    } elseif ($skill == "PHP") {
-
-                        echo "🐘";
-
-                    } elseif ($skill == "Python") {
-
-                        echo "🐍";
-
-                    }
+                    echo str_pad(
+                        $nomor,
+                        2,
+                        "0",
+                        STR_PAD_LEFT
+                    );
 
                     ?>
 
                 </div>
 
+
+                <div class="icon">
+
+                    <?php
+                    echo htmlspecialchars(
+                        $skill['icon']
+                    );
+                    ?>
+
+                </div>
+
+
                 <h3>
-                    <?php echo $skill; ?>
+
+                    <?php
+                    echo htmlspecialchars(
+                        $skill['nama_skill']
+                    );
+                    ?>
+
                 </h3>
 
+
                 <p>
-                    Kemampuan yang sedang saya pelajari.
+
+                    <?php
+                    echo htmlspecialchars(
+                        $skill['deskripsi']
+                    );
+                    ?>
+
                 </p>
 
             </div>
 
-        <?php endforeach; ?>
+        <?php
+
+        $nomor++;
+
+        endwhile;
+
+        ?>
 
     </div>
 
@@ -283,70 +336,55 @@ $skills = [
 
     <div class="projects">
 
-        <div class="project">
 
-            <div class="project-icon">
-                🌐
+        <?php while ($project = mysqli_fetch_assoc($queryProject)): ?>
+
+            <div class="project">
+
+                <div class="project-icon">
+
+                    <?php
+                    echo htmlspecialchars(
+                        $project['icon']
+                    );
+                    ?>
+
+                </div>
+
+
+                <h3>
+
+                    <?php
+                    echo htmlspecialchars(
+                        $project['nama_project']
+                    );
+                    ?>
+
+                </h3>
+
+
+                <p>
+
+                    <?php
+                    echo htmlspecialchars(
+                        $project['deskripsi']
+                    );
+                    ?>
+
+                </p>
+
+
+                <a
+                    href="#kontak"
+                    class="project-button"
+                >
+                    Lihat Project →
+                </a>
+
             </div>
 
-            <h3>
-                Website Portfolio
-            </h3>
+        <?php endwhile; ?>
 
-            <p>
-                Website portfolio sederhana
-                menggunakan PHP, HTML dan CSS.
-            </p>
-
-            <a href="#kontak" class="project-button">
-                Lihat Project →
-            </a>
-
-        </div>
-
-
-        <div class="project">
-
-            <div class="project-icon">
-                🛒
-            </div>
-
-            <h3>
-                Program Kasir
-            </h3>
-
-            <p>
-                Program kasir sederhana menggunakan
-                bahasa pemrograman Python.
-            </p>
-
-            <a href="#kontak" class="project-button">
-                Lihat Project →
-            </a>
-
-        </div>
-
-
-        <div class="project">
-
-            <div class="project-icon">
-                🏥
-            </div>
-
-            <h3>
-                Sistem Antrian
-            </h3>
-
-            <p>
-                Program sederhana untuk mengelola
-                sistem antrian.
-            </p>
-
-            <a href="#kontak" class="project-button">
-                Lihat Project →
-            </a>
-
-        </div>
 
     </div>
 
@@ -369,12 +407,18 @@ $skills = [
 
     </div>
 
+
     <p class="contact-text">
+
         Kamu bisa menghubungi saya melalui:
+
     </p>
 
 
     <div class="kontak-box">
+
+
+        <!-- EMAIL -->
 
         <a
             href="mailto:sumiati@gmail.com"
@@ -384,6 +428,7 @@ $skills = [
             <div class="contact-icon">
                 📧
             </div>
+
 
             <div>
 
@@ -397,12 +442,15 @@ $skills = [
 
             </div>
 
+
             <span>
                 →
             </span>
 
         </a>
 
+
+        <!-- WHATSAPP -->
 
         <a
             href="https://wa.me/6281216727165"
@@ -413,6 +461,7 @@ $skills = [
             <div class="contact-icon">
                 📱
             </div>
+
 
             <div>
 
@@ -426,12 +475,15 @@ $skills = [
 
             </div>
 
+
             <span>
                 →
             </span>
 
         </a>
 
+
+        <!-- GITHUB -->
 
         <a
             href="https://github.com/cumiaa/website-sumiati1"
@@ -442,6 +494,7 @@ $skills = [
             <div class="contact-icon">
                 🐙
             </div>
+
 
             <div>
 
@@ -455,11 +508,13 @@ $skills = [
 
             </div>
 
+
             <span>
                 →
             </span>
 
         </a>
+
 
     </div>
 
@@ -471,15 +526,33 @@ $skills = [
 <footer>
 
     <div class="footer-logo">
-        Sumiati
+
+        <?php
+        echo htmlspecialchars(
+            $profil['nama']
+        );
+        ?>
+
     </div>
 
+
     <p>
-        Dibuat dengan 💙 menggunakan PHP, HTML & CSS.
+        Dibuat dengan 💙 menggunakan PHP, MySQL, HTML & CSS.
     </p>
 
+
     <p class="copyright">
-        © 2026 Sumiati | Website Portfolio
+
+        © 2026
+
+        <?php
+        echo htmlspecialchars(
+            $profil['nama']
+        );
+        ?>
+
+        | Website Portfolio
+
     </p>
 
 </footer>
