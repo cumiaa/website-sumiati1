@@ -1,14 +1,10 @@
 <?php
 
-// =========================
-// KONEKSI DATABASE
-// =========================
-
 require_once "koneksi.php";
 
 
 // =========================
-// AMBIL DATA PROFIL
+// DATA PROFIL
 // =========================
 
 $queryProfil = mysqli_query(
@@ -20,7 +16,7 @@ $profil = mysqli_fetch_assoc($queryProfil);
 
 
 // =========================
-// AMBIL DATA SKILL
+// DATA SKILL
 // =========================
 
 $querySkill = mysqli_query(
@@ -30,7 +26,7 @@ $querySkill = mysqli_query(
 
 
 // =========================
-// AMBIL DATA PROJECT
+// DATA PROJECT
 // =========================
 
 $queryProject = mysqli_query(
@@ -69,70 +65,125 @@ $queryProject = mysqli_query(
 <nav class="navbar">
 
     <div class="logo">
-        <?php echo htmlspecialchars($profil['nama']); ?>
+
+        <?php
+        echo htmlspecialchars($profil['nama']);
+        ?>
+
     </div>
+
 
     <div class="menu">
 
-        <a href="#home">Home</a>
+        <a href="#home">
+            Home
+        </a>
 
-        <a href="#tentang">Tentang</a>
+        <a href="#tentang">
+            Tentang
+        </a>
 
-        <a href="#skill">Skill</a>
+        <a href="#skill">
+            Skill
+        </a>
 
-        <a href="#project">Project</a>
+        <a href="#project">
+            Project
+        </a>
 
-        <a href="#kontak">Kontak</a>
+        <a href="#kontak">
+            Kontak
+        </a>
 
     </div>
 
 </nav>
 
 
+
 <!-- ================= HOME ================= -->
 
 <section id="home" class="hero">
 
+
     <div class="hero-content">
 
+
         <div class="welcome">
+
             ✨ Selamat datang di website saya
+
         </div>
 
+
         <p class="small">
+
             HALO, SAYA
+
         </p>
+
 
         <h1>
-            <?php echo htmlspecialchars($profil['nama']); ?>
+
+            <?php
+            echo htmlspecialchars($profil['nama']);
+            ?>
+
         </h1>
 
+
         <h2>
-            <?php echo htmlspecialchars($profil['status']); ?>
+
+            <?php
+            echo htmlspecialchars($profil['status']);
+            ?>
+
         </h2>
 
+
         <p class="hero-description">
-            <?php echo htmlspecialchars($profil['deskripsi']); ?>
+
+            <?php
+            echo htmlspecialchars($profil['deskripsi']);
+            ?>
+
         </p>
+
 
         <div class="hero-buttons">
 
-            <a href="#tentang" class="button primary">
+
+            <a
+                href="#tentang"
+                class="button primary"
+            >
+
                 Tentang Saya
+
             </a>
 
-            <a href="#project" class="button secondary">
+
+            <a
+                href="#project"
+                class="button secondary"
+            >
+
                 Lihat Project
+
             </a>
+
 
         </div>
 
+
     </div>
+
 
 
     <!-- FOTO PROFIL -->
 
     <div class="hero-card">
+
 
         <div class="profile-icon">
 
@@ -143,13 +194,20 @@ $queryProject = mysqli_query(
 
         </div>
 
+
         <h3>
-            <?php echo htmlspecialchars($profil['nama']); ?>
+
+            <?php
+            echo htmlspecialchars($profil['nama']);
+            ?>
+
         </h3>
+
 
         <p>
             Teknologi Informasi
         </p>
+
 
         <div class="status">
 
@@ -159,14 +217,18 @@ $queryProject = mysqli_query(
 
         </div>
 
+
     </div>
 
+
 </section>
+
 
 
 <!-- ================= TENTANG ================= -->
 
 <section id="tentang" class="section">
+
 
     <div class="section-title">
 
@@ -181,53 +243,75 @@ $queryProject = mysqli_query(
     </div>
 
 
+
     <div class="about">
 
+
         <div class="card">
+
 
             <div class="card-icon">
                 👩‍💻
             </div>
 
+
             <h3>
                 Profil Saya
             </h3>
 
+
             <p>
+
                 Saya adalah mahasiswa Teknologi Informasi
                 yang sedang belajar membuat website dan
                 mempelajari berbagai teknologi pemrograman.
+
             </p>
+
 
         </div>
 
 
+
         <div class="card">
+
 
             <div class="card-icon">
                 🎯
             </div>
 
+
             <h3>
                 Tujuan Saya
             </h3>
 
+
             <p>
+
                 Saya ingin meningkatkan kemampuan dalam
                 pemrograman dan membuat berbagai project
                 untuk menambah pengalaman.
+
             </p>
+
 
         </div>
 
+
     </div>
+
 
 </section>
 
 
+
 <!-- ================= SKILL ================= -->
 
-<section id="skill" class="section skill-section">
+<section
+    id="skill"
+    class="section skill-section"
+>
+
 
     <div class="section-title">
 
@@ -242,17 +326,23 @@ $queryProject = mysqli_query(
     </div>
 
 
+
     <div class="skills">
+
 
         <?php
 
         $nomor = 1;
 
-        while ($skill = mysqli_fetch_assoc($querySkill)):
+        while (
+            $skill = mysqli_fetch_assoc($querySkill)
+        ):
 
         ?>
 
+
             <div class="skill">
+
 
                 <div class="skill-number">
 
@@ -270,39 +360,50 @@ $queryProject = mysqli_query(
                 </div>
 
 
+
                 <div class="icon">
 
                     <?php
+
                     echo htmlspecialchars(
                         $skill['icon']
                     );
+
                     ?>
 
                 </div>
 
 
+
                 <h3>
 
                     <?php
+
                     echo htmlspecialchars(
                         $skill['nama_skill']
                     );
+
                     ?>
 
                 </h3>
 
 
+
                 <p>
 
                     <?php
+
                     echo htmlspecialchars(
                         $skill['deskripsi']
                     );
+
                     ?>
 
                 </p>
 
+
             </div>
+
 
         <?php
 
@@ -312,14 +413,21 @@ $queryProject = mysqli_query(
 
         ?>
 
+
     </div>
+
 
 </section>
 
 
+
 <!-- ================= PROJECT ================= -->
 
-<section id="project" class="section">
+<section
+    id="project"
+    class="section"
+>
+
 
     <div class="section-title">
 
@@ -334,66 +442,106 @@ $queryProject = mysqli_query(
     </div>
 
 
+
     <div class="projects">
 
 
-        <?php while ($project = mysqli_fetch_assoc($queryProject)): ?>
+        <?php
+
+        while (
+            $project = mysqli_fetch_assoc($queryProject)
+        ):
+
+        ?>
+
 
             <div class="project">
+
+
+                <!-- ICON PROJECT -->
 
                 <div class="project-icon">
 
                     <?php
+
                     echo htmlspecialchars(
                         $project['icon']
                     );
+
                     ?>
 
                 </div>
 
 
+
+                <!-- NAMA PROJECT -->
+
                 <h3>
 
                     <?php
+
                     echo htmlspecialchars(
                         $project['nama_project']
                     );
+
                     ?>
 
                 </h3>
 
 
+
+                <!-- DESKRIPSI -->
+
                 <p>
 
                     <?php
+
                     echo htmlspecialchars(
                         $project['deskripsi']
                     );
+
                     ?>
 
                 </p>
 
 
+
+                <!-- TOMBOL DETAIL -->
+
                 <a
-                    href="#kontak"
+                    href="project.php?id=<?php echo $project['id']; ?>"
                     class="project-button"
                 >
+
                     Lihat Project →
+
                 </a>
+
 
             </div>
 
-        <?php endwhile; ?>
+
+        <?php
+
+        endwhile;
+
+        ?>
 
 
     </div>
 
+
 </section>
+
 
 
 <!-- ================= KONTAK ================= -->
 
-<section id="kontak" class="kontak">
+<section
+    id="kontak"
+    class="kontak"
+>
+
 
     <div class="section-title">
 
@@ -415,6 +563,7 @@ $queryProject = mysqli_query(
     </p>
 
 
+
     <div class="kontak-box">
 
 
@@ -424,6 +573,7 @@ $queryProject = mysqli_query(
             href="mailto:sumiati@gmail.com"
             class="contact-item"
         >
+
 
             <div class="contact-icon">
                 📧
@@ -447,7 +597,9 @@ $queryProject = mysqli_query(
                 →
             </span>
 
+
         </a>
+
 
 
         <!-- WHATSAPP -->
@@ -457,6 +609,7 @@ $queryProject = mysqli_query(
             target="_blank"
             class="contact-item"
         >
+
 
             <div class="contact-icon">
                 📱
@@ -480,7 +633,9 @@ $queryProject = mysqli_query(
                 →
             </span>
 
+
         </a>
+
 
 
         <!-- GITHUB -->
@@ -490,6 +645,7 @@ $queryProject = mysqli_query(
             target="_blank"
             class="contact-item"
         >
+
 
             <div class="contact-icon">
                 🐙
@@ -513,31 +669,40 @@ $queryProject = mysqli_query(
                 →
             </span>
 
+
         </a>
 
 
     </div>
 
+
 </section>
+
 
 
 <!-- ================= FOOTER ================= -->
 
 <footer>
 
+
     <div class="footer-logo">
 
         <?php
+
         echo htmlspecialchars(
             $profil['nama']
         );
+
         ?>
 
     </div>
 
 
     <p>
-        Dibuat dengan 💙 menggunakan PHP, MySQL, HTML & CSS.
+
+        Dibuat dengan 💙 menggunakan
+        PHP, MySQL, HTML & CSS.
+
     </p>
 
 
@@ -546,16 +711,20 @@ $queryProject = mysqli_query(
         © 2026
 
         <?php
+
         echo htmlspecialchars(
             $profil['nama']
         );
+
         ?>
 
         | Website Portfolio
 
     </p>
 
+
 </footer>
+
 
 
 </body>
